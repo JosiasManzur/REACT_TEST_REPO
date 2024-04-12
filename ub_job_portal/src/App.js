@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import LoginScreen from './components/LoginScreen';
 import JobSearchFilter from './components/JobSearchFilter'; 
 
+
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 

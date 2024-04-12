@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './LoginScreen.css';
+import ublogo from '../images/ub_logo.png';
 
 const LoginScreen = ({ onLoginSuccess }) => {
   const [username, setUsername] = useState('');
@@ -33,6 +34,7 @@ const LoginScreen = ({ onLoginSuccess }) => {
   return (
     <div className="login-container">
       <div className="login-box">
+        <img src={ublogo} alt="UB Logo"/>
         <h2 className="login-title">UB Job Portal</h2>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <input

@@ -1,0 +1,74 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #551a8b, #8b008b);
+  }
+  
+  .login-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 50vh;
+  }
+  
+  .login-title {
+    margin-bottom: 20px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #551a8b;
+  }
+  
+  .input-field {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .remember-me {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .remember-me input {
+    margin-right: 10px;
+  }
+  
+  .login-button {
+    width: 100%;
+    height: 50px;
+    background-color: #551a8b;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #8b008b;
+  }
+  
+  .forgot-password {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #666;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  

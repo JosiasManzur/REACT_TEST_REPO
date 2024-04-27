@@ -3,10 +3,10 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #551a8b, #8b008b);
+    background-image: linear-gradient(to bottom, #551a8b, #651d91, #751f98, #85229d, #9525a3, #9924a3, #9e23a2, #a222a2, #9c1b9c, #961496, #910b91, #8b008b);
   }
   
-  .login-box {
+  .login-box { 
     display: flex;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.9);
@@ -15,12 +15,12 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 50vh;
-    flex-direction: column;
     align-items: center;
-  }
+    flex-wrap: wrap;
+  } 
   
   .login-title {
-    margin-bottom: 20px;
+    margin: 20px 0px; 
     font-size: 36px;
     font-weight: bold;
     color: #551a8b;
@@ -73,3 +73,15 @@
     cursor: pointer;
   }
   
+  .signup-link {
+    background: none; 
+    border: none;
+    color: blue; /* Change color to match anchor tag */
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: inherit; /* Inherit font size from parent */
+  }
+  
+  .signup-link:hover {
+    text-decoration: underline;
+  }

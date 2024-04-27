@@ -1,0 +1,147 @@
+/* Button styles */
+.back-button {
+  background-color: #ffffff;
+  color: #333333;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0px 20px 0px 0px;
+}
+
+.back-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Shape divider styles */
+.custom-shape-divider-top-1714074621 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1714074621 svg {
+  position: relative;
+  display: block;
+  width: calc(300% + 1.3px);
+  height: 500px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1714074621 .shape-fill {
+  fill: #551a8b;
+}
+
+/* Container styles */
+.view-profile-container {
+  color: #ffffff;
+  padding: 40px;
+  background: radial-gradient(rgb(19, 30, 37) 24.5%, rgb(19, 30, 37) 66%);
+  height: auto;
+  min-height: 100vh;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Header styles */
+.profile-header {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 9000;
+}
+
+.user-icon {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+.title {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  color: white;
+  margin: 0px 20px;
+}
+
+.title h2 {
+  font-size: 1.8rem; /* Adjusted font size */
+  font-weight: bold;
+  margin: 0px;
+}
+
+/* Profile content styles */
+.profile-content {
+  padding: 40px;
+  position: relative;
+}
+
+/* Profile fields styles */
+.student-profile input,
+.company-profile input,
+.save-changes-button {
+  display: block;
+  width: calc(100% - 45px); 
+  margin: 0px auto 20px auto;
+  padding: 20px; 
+  border: none;
+  border-radius: 30px;
+  font-size: 20px;
+  position: relative;
+  transition: background-color 0.3s ease;
+  background-color: #f9f9f9;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  color: #333333;
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+/* Password visibility toggle icon */
+.input-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666666;
+  font-size: 24px;
+}
+
+.input-icon:hover {
+  color: #333333;
+}
+
+/* Save changes button styles */
+.save-changes-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.save-changes-button {
+  background-color: #4CAF50; /* Green color */
+  color: #ffffff; /* White text color */
+  border: none;
+  border-radius: 30px; /* Large border radius */
+  padding: 20px 40px; /* Larger padding */
+  font-size: 20px; /* Larger font size */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+.save-changes-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.save-changes-button.saving {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+

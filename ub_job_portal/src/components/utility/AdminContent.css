@@ -100,3 +100,47 @@
 .user-accounts ul, .job-listings ul {
   color: black;
 }
+
+/* Grid and List View Options */
+
+.view-options {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.view-option {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Filter Options */
+
+.filter-options {
+  margin-bottom: 10px;
+}
+
+.filter-option {
+  margin-right: 10px;
+}
+
+/* Search Box */
+
+.search-box {
+  margin-bottom: 10px;
+}
+
+.search-input {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

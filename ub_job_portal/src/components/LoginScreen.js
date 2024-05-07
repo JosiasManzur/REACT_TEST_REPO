@@ -45,12 +45,17 @@ const LoginScreen = ({ onLoginSuccess }) => {
     setShowSignUp(false);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleLogin();
+  };
+
   return (
     <div className="login-container">
       <div className="login-box">
         <img src={ublogo} alt="UB Logo" className="ub-logo" />
         {!showSignUp ? (
-          <>
+          <form onSubmit={handleSubmit}>
             <h2 className="login-title">University of Belize Job Portal</h2>
             {errorMessage && <p className="error-message">{errorMessage}</p>} 
             <input
@@ -67,7 +72,7 @@ const LoginScreen = ({ onLoginSuccess }) => {
               onChange={(e) => setPassword(e.target.value)}
               className="input-field"
             />
-            <button onClick={handleLogin} className="login-button">
+            <button type="submit" className="login-button">
               Login
             </button>
             <p className="signup-text">
@@ -76,7 +81,7 @@ const LoginScreen = ({ onLoginSuccess }) => {
                 Sign Up 
               </button> 
             </p>
-          </>
+          </form>
         ) : (
           <SignUpScreen onSignup={handleSignUp} onSignupSuccess={handleSignupSuccess} onCancel={() => setShowSignUp(false)} />
         )}

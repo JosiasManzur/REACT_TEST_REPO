@@ -33,7 +33,7 @@ const App = () => {
   const handleInactivityTimeout = () => {
     // Set timeout to logout after 30 minutes of inactivity (adjust as needed)
     const timeoutInMilliseconds = 30 * 60 * 1000;
-    let inactivityTimeout;
+    let inactivityTimeout; 
 
     const resetTimeout = () => {
       clearTimeout(inactivityTimeout);

@@ -144,3 +144,11 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.user-picture {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image covers the circle */
+  margin-right: 10px;
+}

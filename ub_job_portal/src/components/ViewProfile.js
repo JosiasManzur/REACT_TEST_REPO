@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './ViewProfile.css';
+import './utility/css/ViewProfile.css';
 import { FaUser } from 'react-icons/fa';
 import LogoutButton from './utility/LogoutButton';
 
@@ -29,6 +29,7 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
 
   const [isSaving, setIsSaving] = useState(false); // State variable to manage saving state
   const [validationError, setValidationError] = useState(null); // State variable to manage validation error
+  const [successMessage, setSuccessMessage] = useState(null); // State variable to manager success message
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false); // State variable to manage confirmation modal
 
   useEffect(() => {
@@ -41,7 +42,7 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
       phoneNumber: '123-456-7890',
       studentUsername: 'johndoe123',
       currentPassword: 'password',
-      studentProfilePicture: '', // New field for student profile picture URL
+      studentProfilePicture: 'https://cdna.artstation.com/p/assets/images/images/018/262/798/original/lucas-gomes-globin-slayer.gif?1558740088', // New field for student profile picture URL
       companyName: 'Example Inc.',
       contactPerson: 'Jane Smith',
       contactPhone: '987-654-3210',
@@ -49,7 +50,7 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
       companyWebsite: 'www.example.com',
       companyUsername: 'exampleuser',
       currentCompanyPassword: 'password',
-      companyProfilePicture: '', // New field for company profile picture URL
+      companyProfilePicture: 'https://64.media.tumblr.com/4d9f911a9310776d716e492e8fd03cad/tumblr_p1oxc3f1jS1tlgv32o1_540.pnj', // New field for company profile picture URL
     };
   
     // Set dummy user profile data to localStorage
@@ -94,39 +95,35 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
   
     const passwords = passwordValidation[userType];
   
-    // Check if any required field is empty
     if (requiredFields[userType].some(field => !field)) {
       setValidationError('Please fill out all fields.');
       return false;
     }
   
-    // Check if either new password or confirm new password is filled out
     if (passwords.new || passwords.confirm) {
-      // If the current password field is empty, show error
       if (!passwords.current) {
         setValidationError('Please enter the current password.');
         return false;
       }
-      // If the current password does not match the dummy data, show error
       if (passwords.current !== userProfileData[userType === 'student' ? 'currentPassword' : 'currentCompanyPassword']) {
         setValidationError('Current password is incorrect.');
         return false;
       }
+      if (passwords.new === passwords.current) { // Check if new password is the same as current password
+        setValidationError('New password must be different from the current password.');
+        return false;
+      }
     }
   
-    // If the current password field is filled out
     if (passwords.current) {
-      // If the new password field is empty, show error
       if (!passwords.new) {
         setValidationError('Please enter a new password.');
         return false;
       }
-      // If the confirm new password field is empty, show error
       if (!passwords.confirm) {
         setValidationError('Please confirm the new password.');
         return false;
       }
-      // If the new password and confirm new password do not match, show error
       if (passwords.new !== passwords.confirm) {
         setValidationError('New password and confirm password do not match.');
         return false;
@@ -136,11 +133,59 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
     return true;
   };
   
+  
   const handleSaveChanges = () => {
     if (!validateFields()) return;
 
     setIsConfirmationModalOpen(true);
   };
+
+  const handleEditProfilePicture = () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/png, image/jpeg'; // Accept only PNG and JPEG images
+    input.onchange = (event) => {
+      const file = event.target.files[0];
+      if (!file) return; // If no file selected, do nothing
+      
+      console.log('File type:', file.type);
+      
+      // Check if the file type starts with 'image/'
+      if (!file.type.startsWith('image/')) {
+        alert('Please upload a PNG or JPEG image.');
+        return;
+      }
+      
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (e) => {
+        const img = new Image();
+        img.src = e.target.result;
+        img.onload = () => {
+          console.log('Image dimensions:', img.width, 'x', img.height);
+          const width = img.width;
+          const height = img.height;
+          if (width !== 500 || height !== 500) {
+            alert('Please upload an image with dimensions 500x500 pixels.');
+            return;
+          }
+          
+          // Update the profile picture preview
+          const profilePictureContainer = document.querySelector('.profile-picture-container');
+          const profilePicture = profilePictureContainer.querySelector('.profile-picture');
+          profilePicture.src = e.target.result;
+          profilePicture.style.display = 'block'; // Ensure the image is visible
+          
+          // Hide the edit button overlay
+          const editOverlay = profilePictureContainer.querySelector('.edit-overlay');
+          editOverlay.style.display = 'none';
+        };
+      };
+    };
+    input.click();
+  };
+  
+  
 
   const handleConfirmChanges = () => {
     setIsSaving(true); // Set saving state to true
@@ -155,8 +200,10 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
       setConfirmNewPassword('');
       setNewCompanyPassword('');
       setConfirmNewCompanyPassword('');
-      // Show confirmation popup (you can replace this with your own popup implementation)
-      alert('Changes saved successfully!');
+      setSuccessMessage('Changes saved successfully!');
+      setTimeout(() => {
+        setSuccessMessage(null);
+      }, 5000);
     }, 2000); // Simulating a delay for the save action, adjust as needed
   };
 
@@ -202,9 +249,9 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
           <div className="profile-picture-container">
             <img src={userType === 'student' ? studentProfilePicture : companyProfilePicture} alt="Profile" className="profile-picture" />
             <div className="edit-overlay">
-              <button className="edit-button">Edit</button>
+              <button className="edit-button" onClick={handleEditProfilePicture}>Edit</button>
             </div>
-          </div>
+          </div> 
         </div>
         {userType === 'student' && (
           <div className="student-profile">
@@ -325,6 +372,7 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
             {isSaving ? 'Saving...' : 'Save Changes'}
           </button>
           {validationError && <p className="error-message">{validationError}</p>}
+          {successMessage && <p className="success-message">{successMessage}</p>}
         </div>
       </div>
       {/* Confirmation Modal */}

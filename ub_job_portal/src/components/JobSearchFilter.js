@@ -3,7 +3,7 @@ import Header from './utility/Header';
 import StudentContent from './utility/StudentContent';
 import CompanyContent from './utility/CompanyContent';
 import AdminContent from './utility/AdminContent';
-import './JobSearchFilter.css';
+import './utility/css/JobSearchFilter.css';
 import ViewProfile from './ViewProfile'; // Import the ViewProfile component
 
 const JobSearchFilter = ({ onLogout, clearUserType }) => {

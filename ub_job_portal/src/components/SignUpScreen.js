@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './SignUpScreen.css';
+import './utility/css/SignUpScreen.css';
 
 const SignUpScreen = ({ onSignup, onSignupSuccess, onCancel }) => {
   const [signupType, setSignupType] = useState('student');

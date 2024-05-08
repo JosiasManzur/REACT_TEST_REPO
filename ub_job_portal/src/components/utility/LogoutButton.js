@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './LogoutButton.css'; 
+import './css/LogoutButton.css'; 
 
 const LogoutButton = ({ onLogout }) => {
   const [showModal, setShowModal] = useState(false);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './LoginScreen.css';
+import './utility/css/LoginScreen.css';
 import ublogo from '../images/ub_logo.png';
 import SignUpScreen from './SignUpScreen';
 import JobSearchFilter from './JobSearchFilter'; // Import JobSearchFilter component

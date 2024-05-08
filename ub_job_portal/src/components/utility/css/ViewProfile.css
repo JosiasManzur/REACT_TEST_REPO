@@ -200,8 +200,8 @@
 
 .profile-picture-container {
   position: relative;
-  width: 150px; /* Adjust as needed */
-  height: 150px; /* Adjust as needed */
+  width: 250px; /* Adjust as needed */
+  height: 250px; /* Adjust as needed */
   overflow: hidden;
   border-radius: 50%;
 }
@@ -242,4 +242,11 @@
 
 .edit-button:hover {
   background-color: rgba(0, 0, 0, 1);
+}
+
+.success-message {
+  color: green;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px auto 20px auto;
 }

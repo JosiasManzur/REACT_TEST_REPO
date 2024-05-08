@@ -13,6 +13,7 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
+  const [studentProfilePicture, setStudentProfilePicture] = useState('');
 
   // Company Profile Fields
   const [companyName, setCompanyName] = useState('');
@@ -24,6 +25,7 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
   const [currentCompanyPassword, setCurrentCompanyPassword] = useState('');
   const [newCompanyPassword, setNewCompanyPassword] = useState('');
   const [confirmNewCompanyPassword, setConfirmNewCompanyPassword] = useState('');
+  const [companyProfilePicture, setCompanyProfilePicture] = useState('');
 
   const [isSaving, setIsSaving] = useState(false); // State variable to manage saving state
   const [validationError, setValidationError] = useState(null); // State variable to manage validation error
@@ -39,6 +41,7 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
       phoneNumber: '123-456-7890',
       studentUsername: 'johndoe123',
       currentPassword: 'password',
+      studentProfilePicture: '', // New field for student profile picture URL
       companyName: 'Example Inc.',
       contactPerson: 'Jane Smith',
       contactPhone: '987-654-3210',
@@ -46,6 +49,7 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
       companyWebsite: 'www.example.com',
       companyUsername: 'exampleuser',
       currentCompanyPassword: 'password',
+      companyProfilePicture: '', // New field for company profile picture URL
     };
   
     // Set dummy user profile data to localStorage
@@ -62,6 +66,7 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
         setEmail(storedUserProfileData.email);
         setPhoneNumber(storedUserProfileData.phoneNumber);
         setStudentUsername(storedUserProfileData.studentUsername);
+        setStudentProfilePicture(storedUserProfileData.studentProfilePicture); // Set student profile picture URL
       } else if (storedUserProfileData.userType === 'company') {
         setCompanyName(storedUserProfileData.companyName);
         setContactPerson(storedUserProfileData.contactPerson);
@@ -69,42 +74,68 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
         setContactEmail(storedUserProfileData.contactEmail);
         setCompanyWebsite(storedUserProfileData.companyWebsite);
         setCompanyUsername(storedUserProfileData.companyUsername);
+        setCompanyProfilePicture(storedUserProfileData.companyProfilePicture); // Set company profile picture URL
       }
     }
   }, [userType]); // Add userType as a dependency to ensure useEffect runs when userType changes  
 
   const validateFields = () => {
-    console.log('Validating fields...');
-    
-    if (userType === 'student') {
-      if (!firstName || !lastName || !email || !phoneNumber || !studentUsername) {
-        console.log('Field validation failed: Required student fields are empty.');
-        setValidationError('Please fill out all fields.');
-        return false;
-      }
-    } else if (userType === 'company') {
-      if (!companyName || !contactPerson || !contactPhone || !contactEmail || !companyWebsite || !companyUsername) {
-        console.log('Field validation failed: Required company fields are empty.');
-        setValidationError('Please fill out all fields.');
-        return false;
-      }
-    }
-    
-    if ((currentPassword && currentPassword !== currentCompanyPassword) ||
-        (newPassword && newPassword !== confirmNewPassword) ||
-        (newCompanyPassword && newCompanyPassword !== confirmNewCompanyPassword)) {
-      console.log('Password validation failed: Passwords do not match or are incorrect.');
-      setValidationError('Please check your passwords.');
+    const userProfileData = JSON.parse(localStorage.getItem('userProfileData'));
+  
+    const requiredFields = {
+      student: [firstName, lastName, email, phoneNumber, studentUsername],
+      company: [companyName, contactPerson, contactPhone, contactEmail, companyWebsite, companyUsername]
+    };
+  
+    const passwordValidation = {
+      student: { current: currentPassword, new: newPassword, confirm: confirmNewPassword },
+      company: { current: currentCompanyPassword, new: newCompanyPassword, confirm: confirmNewCompanyPassword }
+    };
+  
+    const passwords = passwordValidation[userType];
+  
+    // Check if any required field is empty
+    if (requiredFields[userType].some(field => !field)) {
+      setValidationError('Please fill out all fields.');
       return false;
     }
   
-    console.log('All fields validated successfully.');
+    // Check if either new password or confirm new password is filled out
+    if (passwords.new || passwords.confirm) {
+      // If the current password field is empty, show error
+      if (!passwords.current) {
+        setValidationError('Please enter the current password.');
+        return false;
+      }
+      // If the current password does not match the dummy data, show error
+      if (passwords.current !== userProfileData[userType === 'student' ? 'currentPassword' : 'currentCompanyPassword']) {
+        setValidationError('Current password is incorrect.');
+        return false;
+      }
+    }
+  
+    // If the current password field is filled out
+    if (passwords.current) {
+      // If the new password field is empty, show error
+      if (!passwords.new) {
+        setValidationError('Please enter a new password.');
+        return false;
+      }
+      // If the confirm new password field is empty, show error
+      if (!passwords.confirm) {
+        setValidationError('Please confirm the new password.');
+        return false;
+      }
+      // If the new password and confirm new password do not match, show error
+      if (passwords.new !== passwords.confirm) {
+        setValidationError('New password and confirm password do not match.');
+        return false;
+      }
+    }
+  
     return true;
   };
   
-  
-  
-
   const handleSaveChanges = () => {
     if (!validateFields()) return;
 
@@ -114,10 +145,16 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
   const handleConfirmChanges = () => {
     setIsSaving(true); // Set saving state to true
     setIsConfirmationModalOpen(false); // Close confirmation modal
-
+  
     setTimeout(() => {
       setIsSaving(false); // Reset saving state after a delay (simulating save action)
       setValidationError(null); // Reset validation error
+      // Reset password fields
+      setCurrentPassword('');
+      setNewPassword(''); 
+      setConfirmNewPassword('');
+      setNewCompanyPassword('');
+      setConfirmNewCompanyPassword('');
       // Show confirmation popup (you can replace this with your own popup implementation)
       alert('Changes saved successfully!');
     }, 2000); // Simulating a delay for the save action, adjust as needed
@@ -161,6 +198,14 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
         </div>
       </div>
       <div className="profile-content">
+        <div className="profile-picture-edit-section">
+          <div className="profile-picture-container">
+            <img src={userType === 'student' ? studentProfilePicture : companyProfilePicture} alt="Profile" className="profile-picture" />
+            <div className="edit-overlay">
+              <button className="edit-button">Edit</button>
+            </div>
+          </div>
+        </div>
         {userType === 'student' && (
           <div className="student-profile">
             <input
@@ -221,7 +266,7 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
             />
-            <input
+             <input
               type="text"
               placeholder="Contact Person"
               value={contactPerson}
@@ -283,7 +328,7 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
         </div>
       </div>
       {/* Confirmation Modal */}
-      {isConfirmationModalOpen && (
+      {isConfirmationModalOpen && ( 
         <div className="confirmation-modal">
           <div className="confirmation-modal-content">
             <h3>Are you sure you want to save changes?</h3>
@@ -295,7 +340,7 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
         </div>
       )}
     </div>
-  );
+  );  
 };
 
 export default ViewProfile;

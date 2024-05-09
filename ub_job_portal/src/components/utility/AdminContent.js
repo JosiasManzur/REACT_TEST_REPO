@@ -109,25 +109,57 @@ const AdminContent = () => {
   ]);
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [itemToDelete, setItemToDelete] = useState(null);
+  const [modalContent, setModalContent] = useState(null);
+  const [deleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
+  const [deleteItemId, setDeleteItemId] = useState(null);
+  const [deleteItemType, setDeleteItemType] = useState(null); // New state to store the type of item to be deleted
+
+  const openModal = (content) => {
+    if ('username' in content) {
+      setModalContent({ ...content, type: 'user' });
+    } else if ('title' in content) {
+      setModalContent({ ...content, type: 'job' });
+    }
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalContent(null);
+    setModalOpen(false);
+  };
 
   const deleteUserAccount = (id) => {
-    setModalOpen(true);
-    setItemToDelete({ type: 'user', id });
+    setDeleteItemId(id);
+    setDeleteItemType('user'); // Set the type of item to be deleted
+    setDeleteConfirmationOpen(true);
   };
 
   const deleteJobListing = (id) => {
-    setModalOpen(true);
-    setItemToDelete({ type: 'job', id });
+    setDeleteItemId(id);
+    setDeleteItemType('job'); // Set the type of item to be deleted
+    setDeleteConfirmationOpen(true);
   };
 
   const confirmDelete = () => {
-    if (itemToDelete.type === 'user') {
-      setUserAccounts(userAccounts.filter((account) => account.id !== itemToDelete.id));
-    } else if (itemToDelete.type === 'job') {
-      setJobListings(jobListings.filter((listing) => listing.id !== itemToDelete.id));
+    if (deleteItemId && deleteItemType) {
+      if (deleteItemType === 'user') {
+        const updatedUserAccounts = userAccounts.filter((account) => account.id !== deleteItemId);
+        setUserAccounts(updatedUserAccounts);
+      } else if (deleteItemType === 'job') {
+        const updatedJobListings = jobListings.filter((listing) => listing.id !== deleteItemId);
+        setJobListings(updatedJobListings);
+      }
+      setDeleteConfirmationOpen(false);
+      setDeleteItemId(null);
+      setDeleteItemType(null);
+      closeModal();
     }
-    setModalOpen(false);
+  };
+
+  const cancelDelete = () => {
+    setDeleteConfirmationOpen(false);
+    setDeleteItemId(null);
+    setDeleteItemType(null);
   };
 
   return (
@@ -139,14 +171,13 @@ const AdminContent = () => {
           {userAccounts.map((account) => (
             <li key={account.id}>
               <img src={account.profilePicture} alt="Profile" className="user-picture" />
-              {account.type === 'student' ? (
-                <span className="user-type">Student:</span>
-              ) : (
-                <span className="user-type">Company:</span>
-              )}
+              <span className="user-type">{account.type === 'student' ? 'Student:' : 'Company:'}</span>
               <span className="user-username">{account.username}</span>
               <span className="user-email">{account.email}</span>
-              <button className="delete-button" onClick={() => deleteUserAccount(account.id)}>Delete</button>
+              <div className="card-buttons">
+                <button className="view-details-button" onClick={() => openModal(account)}>View Details</button>
+                <button className="delete-button" onClick={() => deleteUserAccount(account.id)}>Delete</button>
+              </div>
             </li>
           ))}
         </ul> 
@@ -159,7 +190,10 @@ const AdminContent = () => {
               <span className="job-title">{listing.title}</span>
               <span className="job-employer">{listing.employer}</span>
               <span className="job-location">{listing.location}</span>
-              <button className="delete-button" onClick={() => deleteJobListing(listing.id)}>Delete</button>
+              <div className="card-buttons">
+                <button className="view-details-button" onClick={() => openModal(listing)}>View Details</button>
+                <button className="delete-button" onClick={() => deleteJobListing(listing.id)}>Delete</button>
+              </div>
             </li>
           ))}
         </ul>
@@ -167,13 +201,53 @@ const AdminContent = () => {
       {modalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <p>Are you sure you want to delete this {itemToDelete.type === 'user' ? 'user account' : 'job listing'}?</p>
-            <div className="modal-buttons"> 
-              <button onClick={confirmDelete}>Yes</button>
-              <button onClick={() => setModalOpen(false)}>No</button>
-            </div>
+            {modalContent && (
+              <>
+                {modalContent.type === 'user' && (
+                  <div>
+                    <h2>User Details</h2>
+
+                    <img src={modalContent.profilePicture} alt="Profile" className="profile-picture-modal" />
+                    <p>Username: {modalContent.username}</p>
+                    <p>Email: {modalContent.email}</p>
+                    
+                    <div className="card-buttons">
+                      <button className="delete-button" onClick={() => deleteUserAccount(modalContent.id)}>Delete Account</button>
+                      <button className="close-button" onClick={closeModal}>Close</button>
+                    </div>
+                  </div>
+                )}
+                {modalContent.type === 'job' && (
+                  <div>
+                    <h2>Job Listing Details</h2>
+                    <p>Title: {modalContent.title}</p>
+                    <p>Description: {modalContent.description}</p>
+                    <p>Employer: {modalContent.employer}</p>
+                    <p>Location: {modalContent.location}</p>
+                    <p>Category: {modalContent.category}</p>
+                    <p>Time Created: {modalContent.timeCreated}</p>
+                    <div className="card-buttons">
+                      <button className="delete-button" onClick={() => deleteJobListing(modalContent.id)}>Delete Job</button>
+                      <button className="close-button" onClick={closeModal}>Close</button>
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
           </div>
         </div>
+      )}
+
+      {deleteConfirmationOpen && (
+        <div className="confirmation-modal">
+        <div className="confirmation-content">
+          <h3>Are you sure you want to delete this {deleteItemType === 'user' ? 'account' : 'job listing'}?</h3>
+          <div className="confirmation-buttons">
+            <button className="yes-button" onClick={confirmDelete}>Yes</button>
+            <button className="no-button" onClick={cancelDelete}>Cancel</button>
+          </div>
+        </div>
+      </div>
       )}
     </div>
   );

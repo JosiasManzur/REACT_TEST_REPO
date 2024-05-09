@@ -1,37 +1,44 @@
 .admin-content {
-  margin-top: 20px;
+    margin-top: 20px;
+    padding: 40px;
 }
 
 .user-accounts,
 .job-listings {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .user-accounts h4,
 .job-listings h4 {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .user-accounts ul,
 .job-listings ul {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .user-accounts li,
 .job-listings li {
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
-  padding: 10px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 30%;
 }
 
 .user-type {
-  margin-right: 10px;
-  font-weight: bold;
+    margin-right: 10px;
+    font-weight: bold;
 }
 
 .user-username,
@@ -39,116 +46,263 @@
 .job-title,
 .job-employer,
 .job-location {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 .delete-button {
-  background-color: #ff4444;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .delete-button:hover {
-  background-color: #cc0000;
+    background-color: #cc0000;
 }
 
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
-  background-color: #fff;
-  color: black;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  max-width: 300px;
+    background-color: #fff;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
 }
 
 .modal h3 {
-  margin-top: 0;
-  margin-bottom: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
 .modal-buttons {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .modal-buttons button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .modal-buttons button:hover {
-  background-color: #f0f0f0;
-}
-
-.user-accounts ul, .job-listings ul {
-  color: black;
+    background-color: #f0f0f0;
 }
 
 /* Grid and List View Options */
 
 .view-options {
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: flex-end;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .view-option {
-  margin-left: 10px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 /* Filter Options */
 
 .filter-options {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .filter-option {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 /* Search Box */
 
 .search-box {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .search-input {
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .search-button {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .user-picture {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%; /* Makes the image circular */
-  object-fit: cover; /* Ensures the image covers the circle */
-  margin-right: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the circle */
+    margin-right: 10px;
+}
+
+.view-details-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.view-details-button:hover {
+    background-color: grey;
+}
+
+.delete-button {
+    background-color: #ff6961;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.delete-button:hover {
+    background-color: #ff5c4e;
+}
+
+.confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation-content {
+    background-color: #fff;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+}
+
+.confirmation-content h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.confirmation-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.confirmation-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.confirmation-buttons button:hover {
+    background-color: #f0f0f0;
+}
+
+.card-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.card-buttons button {
+    margin: 0px 5px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* subtle shadow */
+    max-width: 600px;
+    width: 80%;
+    text-align: center;
+}
+
+.close-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.profile-picture-modal {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.modal h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal p {
+    margin-bottom: 10px;
+}
+
+.delete-button {
+    background-color: #ff6961;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #ff5c4e;
+}
+
+.modal-content .card-buttons {
+    justify-content: center;
 }

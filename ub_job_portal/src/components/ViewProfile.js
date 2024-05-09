@@ -185,8 +185,6 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
     input.click();
   };
   
-  
-
   const handleConfirmChanges = () => {
     setIsSaving(true); // Set saving state to true
     setIsConfirmationModalOpen(false); // Close confirmation modal

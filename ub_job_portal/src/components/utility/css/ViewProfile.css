@@ -1,152 +1,152 @@
 /* Button styles */
 .back-button {
-  background-color: #ffffff;
-  color: #333333;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 16px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: 0px 20px 0px 0px;
+    background-color: #ffffff;
+    color: #333333;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0px 20px 0px 0px;
 }
 
 .back-button:hover {
-  background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
 
 /* Shape divider styles */
 .custom-shape-divider-top-1714074621 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
 }
 
 .custom-shape-divider-top-1714074621 svg {
-  position: relative;
-  display: block;
-  width: calc(300% + 1.3px);
-  height: 500px;
-  transform: rotateY(180deg);
+    position: relative;
+    display: block;
+    width: calc(300% + 1.3px);
+    height: 500px;
+    transform: rotateY(180deg);
 }
 
 .custom-shape-divider-top-1714074621 .shape-fill {
-  fill: #551a8b;
+    fill: #551a8b;
 }
 
 /* Container styles */
 .view-profile-container {
-  color: #ffffff;
-  padding: 40px;
-  background: radial-gradient(rgb(19, 30, 37) 24.5%, rgb(19, 30, 37) 66%);
-  height: auto;
-  min-height: 100vh;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    padding: 40px;
+    background: radial-gradient(rgb(19, 30, 37) 24.5%, rgb(19, 30, 37) 66%);
+    height: auto;
+    min-height: 100vh;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Header styles */
 .profile-header {
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  z-index: 9000;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 9000;
 }
 
 .user-icon {
-  font-size: 2rem;
-  margin-right: 10px;
+    font-size: 2rem;
+    margin-right: 10px;
 }
 
 .title {
-  background: none;
-  border: none;
-  display: flex;
-  align-items: center;
-  color: white;
-  margin: 0px 20px;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin: 0px 20px;
 }
 
 .title h2 {
-  font-size: 1.8rem; /* Adjusted font size */
-  font-weight: bold;
-  margin: 0px;
+    font-size: 1.8rem; /* Adjusted font size */
+    font-weight: bold;
+    margin: 0px;
 }
 
 /* Profile content styles */
 .profile-content {
-  padding: 40px;
-  position: relative;
+    padding: 40px;
+    position: relative;
 }
 
 /* Profile fields styles */
 .student-profile input,
 .company-profile input,
 .save-changes-button {
-  display: block;
-  width: calc(100% - 45px); 
-  margin: 0px auto 20px auto;
-  padding: 20px; 
-  border: none;
-  border-radius: 30px;
-  font-size: 20px;
-  position: relative;
-  transition: background-color 0.3s ease;
-  background-color: #f9f9f9;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-  color: #333333;
-  box-sizing: border-box; /* Ensure padding and border are included in width */
+    display: block;
+    width: calc(100% - 45px);
+    margin: 0px auto 20px auto;
+    padding: 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    position: relative;
+    transition: background-color 0.3s ease;
+    background-color: #f9f9f9;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    color: #333333;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
 }
 
 /* Password visibility toggle icon */
 .input-icon {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: #666666;
-  font-size: 24px;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666666;
+    font-size: 24px;
 }
 
 .input-icon:hover {
-  color: #333333;
+    color: #333333;
 }
 
 /* Save changes button styles */
 .save-changes-button-container {
-  text-align: center;
-  margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .save-changes-button {
-  background-color: #4CAF50; /* Green color */
-  color: #ffffff; /* White text color */
-  border: none;
-  border-radius: 30px; /* Large border radius */
-  padding: 20px 40px; /* Larger padding */
-  font-size: 20px; /* Larger font size */
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); /* Box shadow */
+    background-color: #4caf50; /* Green color */
+    color: #ffffff; /* White text color */
+    border: none;
+    border-radius: 30px; /* Large border radius */
+    padding: 20px 40px; /* Larger padding */
+    font-size: 20px; /* Larger font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); /* Box shadow */
 }
 
 .save-changes-button:hover {
-  background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049; /* Darker green on hover */
 }
 
 .save-changes-button.saving {
-  cursor: not-allowed;
-  opacity: 0.7;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 /* Modal container */
 .confirmation-modal {
-  position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -159,94 +159,94 @@
 
 /* Modal content */
 .confirmation-modal-content {
-  background-color: #fff;
-  color: black;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  max-width: 300px;
+    background-color: #fff;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
 }
 
 /* Modal title */
 .confirmation-modal-content h3 {
-  margin-top: 0;
-  margin-bottom: 20px;
-} 
+    margin-top: 0;
+    margin-bottom: 20px;
+}
 
 /* Modal buttons */
 .confirmation-buttons {
-  display: flex; 
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
- 
+
 /* Button style */
 .confirmation-modal button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 /* Button hover effect */
 .confirmation-modal button:hover {
-  background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
 
 .profile-picture-edit-section {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .profile-picture-container {
-  position: relative;
-  width: 250px; /* Adjust as needed */
-  height: 250px; /* Adjust as needed */
-  overflow: hidden;
-  border-radius: 50%;
+    position: relative;
+    width: 250px; /* Adjust as needed */
+    height: 250px; /* Adjust as needed */
+    overflow: hidden;
+    border-radius: 50%;
 }
 
 .profile-picture {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .edit-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .profile-picture-container:hover .edit-overlay {
-  opacity: 1;
+    opacity: 1;
 }
 
 .edit-button {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .edit-button:hover {
-  background-color: rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 1);
 }
 
 .success-message {
-  color: green;
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0px auto 20px auto;
+    color: green;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0px auto 20px auto;
 }

@@ -1,71 +1,71 @@
 .job-search-container {
-  color: #ffffff;
-  padding: 20px; 
-  background: radial-gradient( rgb(19, 30, 37) 24.5%, rgb(19, 30, 37) 66%);
-  height: auto; 
-  min-height: 100vh; 
-  display: flex;
-  flex-direction: column;
-} 
+    color: #ffffff;
+    padding: 20px;
+    background: radial-gradient(rgb(19, 30, 37) 24.5%, rgb(19, 30, 37) 66%);
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
 .job-search-title {
-  font-size: 24px;
-  margin-bottom: 20px;
-  z-index: 0;
+    font-size: 24px;
+    margin-bottom: 20px;
+    z-index: 0;
 }
 
 .header-container {
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  z-index: 1;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
 }
 
 .filter-container {
-  margin-bottom: 50px; 
-  display: flex;
-  flex-wrap: wrap; 
-  justify-content: flex-start;
-  position: relative; 
-  z-index: 0; 
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 0;
 }
 
-.filter-container .filter-option { 
-  margin-right: 30px;
+.filter-container .filter-option {
+    margin-right: 30px;
 }
 
 .filter-container label {
-  font-size: 18px;
-  margin-right: 10px;
+    font-size: 18px;
+    margin-right: 10px;
 }
 
 .filter-container select {
-  font-size: 16px;
-  padding: 8px 12px;
-  border-radius: 5px;
-  background-color: #ffffff;
-  color: #333333;
-  border: none;
-} 
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #333333;
+    border: none;
+}
 
 .filter-container button {
-  font-size: 16px;
-  padding: 8px 12px;
-  border-radius: 5px;
-  background-color: #ffffff;
-  color: #333333;
-  border: none;
-  cursor: pointer;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #333333;
+    border: none;
+    cursor: pointer;
 }
 
 .job-postings.grid-view {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
 }
 
-.job-postings.list-view { 
-  display: block;
+.job-postings.list-view {
+    display: block;
 }
 
 .job-postings.list-view .job-posting {
@@ -73,78 +73,84 @@
 }
 
 .job-posting {
-  border-radius: 8px;
-  padding: 20px;
-  background: rgba(0,0,0,0.7);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(0,0,0,0.35);
+    border-radius: 8px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.35);
 }
 
 .job-title {
-  font-size: 20px;
-  margin-bottom: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .job-company {
-  font-size: 16px;
-  margin-bottom: 5px;
+    font-size: 16px;
+    margin-bottom: 5px;
 }
 
 .job-location {
-  font-size: 16px;
-  margin-bottom: 5px;
+    font-size: 16px;
+    margin-bottom: 5px;
 }
 
 .job-description {
-  font-size: 14px;
-  margin-bottom: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .job-category {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .view-profile-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: white;
 }
 
 .user-icon {
-  font-size: 1.2rem;
-  margin-right: 5px;
+    font-size: 1.2rem;
+    margin-right: 5px;
 }
 
 .view-profile-text {
-  font-size: 1.5rem;
-  font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .custom-shape-divider-top-1714074621 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
 }
 
 .custom-shape-divider-top-1714074621 svg {
-  position: relative;
-  display: block;
-  width: calc(300% + 1.3px);
-  height: 500px;
-  transform: rotateY(180deg);
+    position: relative;
+    display: block;
+    width: calc(300% + 1.3px);
+    height: 500px;
+    transform: rotateY(180deg);
 }
 
 .custom-shape-divider-top-1714074621 .shape-fill {
-  fill: #551a8b;
+    fill: #551a8b;
 }
 
-.company-content, .student-content, .admin-content {
-  z-index: 0;
+.company-content,
+.student-content,
+.admin-content {
+    z-index: 0;
+}
+
+.student-content {
+    padding: 40px;
 }

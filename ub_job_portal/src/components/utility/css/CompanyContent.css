@@ -94,6 +94,7 @@
 .company-modal-content textarea {
     max-width: calc(100% - 45px);
     min-width: calc(100% - 45px);
+    min-height: 250px;
 }
 
 .job-posting-buttons {

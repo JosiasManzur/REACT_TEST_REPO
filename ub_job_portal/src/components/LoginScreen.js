@@ -40,11 +40,13 @@ const LoginScreen = ({ onLoginSuccess }) => {
 
     const handleSignUp = () => {
         setShowSignUp(true);
+        window.scrollTo(0, 0);
     };
 
     const handleSignupSuccess = () => {
         // Handle sign up success logic, for example, redirecting to login screen
         setShowSignUp(false);
+        window.scrollTo(0, 0);
     };
 
     const handleSubmit = (e) => {

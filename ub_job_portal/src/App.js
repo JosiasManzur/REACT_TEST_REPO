@@ -63,7 +63,6 @@ const App = () => {
         };
 
         handleInactivityTimeout(); // Call the function to initiate the timeout
-        window.scrollTo(0, 0);
     }, []);
 
     return (

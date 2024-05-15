@@ -250,3 +250,74 @@
     font-weight: bold;
     margin: 0px auto 20px auto;
 }
+
+/* Responsive css for LoginScreen*/
+@media (max-width: 550px) {
+    .profile-content {
+        padding: 0px;
+    }
+
+    .view-profile-container {
+        padding: 20px;
+    }
+
+    .title h2 {
+        font-size: 1rem;
+        font-weight: bold;
+        margin: 0px;
+    }
+}
+
+@media (max-width: 767px) {
+    .job-search-container {
+        max-width: 100%;
+    }
+
+    .custom-shape-divider-top-1714074621 {
+        display: none;
+    }
+
+    .student-content {
+        padding: 0px;
+    }
+
+    .filter-container button {
+        display: none;
+    }
+
+    .filter-container .filter-option {
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+
+    .filter-container {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .filter-option {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filter-container label {
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+
+    .modal-content {
+        width: 70%;
+    }
+
+    .job-postings.grid-view {
+        grid-template-columns: none;
+    }
+
+    .user-icon {
+        font-size: 1rem;
+    }
+
+    .view-profile-text {
+        font-size: 1rem;
+    }
+}

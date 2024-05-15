@@ -154,3 +154,10 @@
 .student-content {
     padding: 40px;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .filter-container {
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+}

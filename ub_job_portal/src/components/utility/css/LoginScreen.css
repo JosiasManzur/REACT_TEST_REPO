@@ -99,3 +99,25 @@
 .signup-link:hover {
     text-decoration: underline;
 }
+
+/* Responsive css for LoginScreen*/
+@media (max-width: 500px) {
+    .ub-logo {
+        -webkit-filter: drop-shadow(2px 0px 2px white);
+        filter: drop-shadow(2px 0px 2px white);
+    }
+
+    .login-box {
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .login-title {
+        font-size: 26px;
+        color: white;
+    }
+
+    p.signup-text {
+        color: white;
+    }
+}

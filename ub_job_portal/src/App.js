@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import LoginScreen from "./components/LoginScreen";
-import JobSearchFilter from "./components/JobSearchFilter";
+import ScreenController from "./components/ScreenController";
 
 const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -68,7 +68,7 @@ const App = () => {
             {!isLoggedIn ? (
                 <LoginScreen onLoginSuccess={handleLoginSuccess} />
             ) : (
-                <JobSearchFilter
+                <ScreenController
                     onLogout={handleLogout}
                     userType={userType}
                     clearUserType={() => setUserType("")}

@@ -7,13 +7,13 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-   
-  .logout-button:hover {
+}
+
+.logout-button:hover {
     background-color: #e0e0e0;
-  }
- 
-  .logout-modal {
+}
+
+.logout-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -23,34 +23,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .logout-modal-content {
+}
+
+.logout-modal-content {
     background-color: #fff;
     color: black;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     max-width: 300px;
-  }
-  
-  .logout-modal h3 {
+}
+
+.logout-modal h3 {
     margin-top: 0;
     margin-bottom: 20px;
-  }
-  
-  .logout-modal-buttons {
+}
+
+.logout-modal-buttons {
     display: flex;
     justify-content: space-between;
-  }
-  
-  .logout-modal button {
+}
+
+.logout-modal button {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .logout-modal button:hover {
+}
+
+.logout-modal button:hover {
     background-color: #f0f0f0;
-  }
+}

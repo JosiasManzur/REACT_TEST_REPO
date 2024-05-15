@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-image: linear-gradient(
         to bottom,
         #551a8b,
@@ -105,6 +105,7 @@
     .ub-logo {
         -webkit-filter: drop-shadow(2px 0px 2px white);
         filter: drop-shadow(2px 0px 2px white);
+        width: 160px;
     }
 
     .login-box {
@@ -119,5 +120,9 @@
 
     p.signup-text {
         color: white;
+    }
+
+    .login-container {
+        min-height: 100vh;
     }
 }

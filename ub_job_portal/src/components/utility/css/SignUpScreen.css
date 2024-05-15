@@ -97,3 +97,15 @@
     font-weight: bold;
     margin: 0px auto 20px auto;
 }
+
+/* Responsive css for LoginScreen*/
+@media (max-width: 500px) {
+    .signup-title {
+        font-size: 26px;
+        color: white;
+    }
+
+    .signup-option {
+        color: white;
+    }
+}

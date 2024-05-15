@@ -29,38 +29,41 @@ const App = () => {
         setUserType("");
     };
 
-    // Function to handle user activity timeout and automatically logout
-    const handleInactivityTimeout = () => {
-        // Set timeout to logout after 30 minutes of inactivity (adjust as needed)
-        const timeoutInMilliseconds = 30 * 60 * 1000;
-        let inactivityTimeout;
-
-        const resetTimeout = () => {
-            clearTimeout(inactivityTimeout);
-            inactivityTimeout = setTimeout(handleLogout, timeoutInMilliseconds);
-        };
-
-        resetTimeout();
-
-        // Reset timeout on user activity
-        const handleActivity = () => {
-            resetTimeout();
-        };
-
-        document.addEventListener("mousemove", handleActivity);
-        document.addEventListener("keypress", handleActivity);
-
-        // Cleanup event listeners
-        return () => {
-            document.removeEventListener("mousemove", handleActivity);
-            document.removeEventListener("keypress", handleActivity);
-        };
-    };
-
     // Check for inactivity on initial mount
     useEffect(() => {
-        handleInactivityTimeout();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // Function to handle user activity timeout and automatically logout
+        const handleInactivityTimeout = () => {
+            // Set timeout to logout after 30 minutes of inactivity (adjust as needed)
+            const timeoutInMilliseconds = 30 * 60 * 1000;
+            let inactivityTimeout;
+
+            const resetTimeout = () => {
+                clearTimeout(inactivityTimeout);
+                inactivityTimeout = setTimeout(
+                    handleLogout,
+                    timeoutInMilliseconds
+                );
+            };
+
+            resetTimeout();
+
+            // Reset timeout on user activity
+            const handleActivity = () => {
+                resetTimeout();
+            };
+
+            document.addEventListener("mousemove", handleActivity);
+            document.addEventListener("keypress", handleActivity);
+
+            // Cleanup event listeners
+            return () => {
+                document.removeEventListener("mousemove", handleActivity);
+                document.removeEventListener("keypress", handleActivity);
+            };
+        };
+
+        handleInactivityTimeout(); // Call the function to initiate the timeout
+        window.scrollTo(0, 0);
     }, []);
 
     return (

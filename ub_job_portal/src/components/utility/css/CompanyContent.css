@@ -159,3 +159,120 @@
     cursor: pointer;
     margin-top: 20px;
 }
+
+.applicant-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.applicant-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.applicant-status-dropdown {
+    margin-left: auto;
+}
+
+.applicant-status-dropdown select {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+.applicant-status-dropdown select:hover {
+    border-color: #999;
+}
+
+.applicant-status-dropdown select:focus {
+    outline: none;
+    border-color: #666;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.close-applicants {
+    background-color: #ff6961;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    padding: 20px 40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 20px auto 0px auto;
+}
+
+.close-applicants:hover {
+    background-color: #ff5c4e;
+}
+
+.applicant-info {
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+}
+
+.applicant-info span {
+    margin-right: 20px;
+}
+
+@media (max-width: 767px) {
+    .company-content {
+        padding: 0px;
+    }
+
+    .job-posting-section input[type="text"],
+    .job-posting-section textarea,
+    .job-posting-section input[type="file"] {
+        width: 100%;
+    }
+
+    .company-modal-content input[type="text"],
+    .company-modal-content textarea,
+    .company-modal-content input[type="file"] {
+        width: 100%;
+    }
+
+    .job-posting-section textarea,
+    .company-modal-content textarea {
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    .save-changes,
+    .cancel-changes {
+        width: 100%;
+    }
+
+    .job-listing-section ul li {
+        width: 100%;
+    }
+
+    .company-modal {
+        max-height: 100%;
+    }
+
+    .applicant-info {
+        flex-direction: column;
+    }
+
+    .company-modal-content {
+        padding: 20px;
+        overflow-y: auto;
+        max-height: 90%;
+    }
+}

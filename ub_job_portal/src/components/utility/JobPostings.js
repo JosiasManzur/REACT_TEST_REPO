@@ -28,6 +28,18 @@ const JobPostings = ({ filteredJobPostings, viewMode }) => {
 
     return (
         <div>
+            <h4>Jobs Applied To</h4>
+            <div className="applied-jobs">
+                {appliedJobs.map((job) => (
+                    <div className="applied-posting" key={job.id}>
+                        <h3 className="job-title">{job.title}</h3>
+                        <p className="job-employer">Employer: {job.employer}</p>
+                        <p className="job-location">Location: {job.location}</p>
+                        <p className="job-category">Category: {job.category}</p>
+                    </div>
+                ))}
+            </div>
+
             <h4>Job Listings</h4>
             <div
                 className={`job-postings ${
@@ -46,18 +58,6 @@ const JobPostings = ({ filteredJobPostings, viewMode }) => {
                         <p className="job-description">{job.description}</p>
                         <p className="job-category">Category: {job.category}</p>
                         <p className="job-time">{job.timeCreated}</p>
-                    </div>
-                ))}
-            </div>
-
-            <h4>Jobs Applied To</h4>
-            <div className="applied-jobs">
-                {appliedJobs.map((job) => (
-                    <div className="applied-posting" key={job.id}>
-                        <h3 className="job-title">{job.title}</h3>
-                        <p className="job-employer">Employer: {job.employer}</p>
-                        <p className="job-location">Location: {job.location}</p>
-                        <p className="job-category">Category: {job.category}</p>
                     </div>
                 ))}
             </div>

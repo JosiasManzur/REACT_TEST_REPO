@@ -24,6 +24,49 @@ const CompanyContent = () => {
     const [selectedListingIndex, setSelectedListingIndex] = useState(null);
     const [applicantsModalOpen, setApplicantsModalOpen] = useState(false);
     const [editModalOpen, setEditModalOpen] = useState(false);
+    const [applicantStatus, setApplicantStatus] = useState("New");
+
+    const dummyApplicants = [
+        {
+            id: 1,
+            type: "student",
+            username: "student1",
+            email: "student1@example.com",
+            profilePicture: "https://i.redd.it/80jykz32log21.png",
+        },
+        {
+            id: 2,
+            type: "company",
+            username: "company1",
+            email: "company1@example.com",
+            profilePicture:
+                "https://64.media.tumblr.com/4d9f911a9310776d716e492e8fd03cad/tumblr_p1oxc3f1jS1tlgv32o1_540.pnj",
+        },
+        {
+            id: 3,
+            type: "student",
+            username: "student2",
+            email: "student2@example.com",
+            profilePicture:
+                "https://i.pinimg.com/originals/46/e4/38/46e438a93cc58647274205fd7f5d8811.gif",
+        },
+        {
+            id: 4,
+            type: "company",
+            username: "company2",
+            email: "company2@example.com",
+            profilePicture:
+                "https://i.pinimg.com/originals/36/db/6c/36db6cad5d391fb538fc1dd844819338.png",
+        },
+        {
+            id: 5,
+            type: "student",
+            username: "student3",
+            email: "student3@example.com",
+            profilePicture:
+                "https://as2.ftcdn.net/v2/jpg/03/36/20/81/500_F_336208121_46dU8WqdYpCtOEErQgQRmz4iLTQD7ox1.jpg",
+        },
+    ];
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -275,7 +318,40 @@ const CompanyContent = () => {
                     <div className="company-modal-content">
                         <h2>Applicants for {selectedListing.title}</h2>
                         {/* Applicant list */}
-                        <button onClick={() => setApplicantsModalOpen(false)}>
+                        {dummyApplicants.map((applicant) => (
+                            <div className="applicant-info" key={applicant.id}>
+                                <img
+                                    src={applicant.profilePicture}
+                                    alt="Profile"
+                                />
+                                <span>{applicant.username}</span>
+                                <span>{applicant.email}</span>
+                                <div className="applicant-status-dropdown">
+                                    <span>Status: </span>
+                                    <select
+                                        value={
+                                            applicantStatus[applicant.id] ||
+                                            "New"
+                                        } // Set default value to 'New' if status is not set
+                                        onChange={(e) =>
+                                            setApplicantStatus({
+                                                ...applicantStatus,
+                                                [applicant.id]: e.target.value,
+                                            })
+                                        }
+                                    >
+                                        <option value="New">New</option>
+                                        <option value="Processed">
+                                            Processed
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        ))}
+                        <button
+                            className="close-applicants"
+                            onClick={() => setApplicantsModalOpen(false)}
+                        >
                             Close
                         </button>
                     </div>

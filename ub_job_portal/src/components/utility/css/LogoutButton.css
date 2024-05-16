@@ -60,14 +60,3 @@
         max-width: 250px;
     }
 }
-
-@media (max-width: 425px) {
-    .profile-picture-container {
-        width: 180px;
-        height: 180px;
-    }
-
-    .profile-header {
-        flex-direction: column;
-    }
-}

@@ -306,3 +306,62 @@
 .modal-content .card-buttons {
     justify-content: center;
 }
+
+@media (max-width: 550px) {
+    .card-buttons button {
+        margin: 5px 0px;
+    }
+
+    .card-buttons {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .user-username,
+    .user-email,
+    .job-title,
+    .job-employer,
+    .job-location {
+        margin-right: 0px;
+    }
+
+    .admin-content {
+        padding: 0px;
+    }
+
+    .profile-picture-modal {
+        width: 180px;
+        height: 180px;
+    }
+
+    .modal {
+        max-height: 100%;
+    }
+
+    .modal-content {
+        padding: 20px;
+        overflow-y: auto;
+        max-height: 90%;
+    }
+}
+
+@media (max-width: 767px) {
+    .user-accounts li,
+    .job-listings li {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .user-accounts li,
+    .job-listings li {
+        width: 42%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .user-accounts li,
+    .job-listings li {
+        width: 28%;
+    }
+}

@@ -45,7 +45,7 @@ const ViewProfile = ({ onBack, onLogout, userType }) => {
             studentUsername: "johndoe123",
             currentPassword: "password",
             studentProfilePicture:
-                "https://cdna.artstation.com/p/assets/images/images/018/262/798/original/lucas-gomes-globin-slayer.gif?1558740088", // New field for student profile picture URL
+                "https://cdnb.artstation.com/p/assets/images/images/018/262/883/large/lucas-gomes-paisagem03.jpg?1558740462", // New field for student profile picture URL
             companyName: "Example Inc.",
             contactPerson: "Jane Smith",
             contactPhone: "987-654-3210",
